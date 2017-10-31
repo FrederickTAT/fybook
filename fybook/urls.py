@@ -22,3 +22,7 @@ urlpatterns = [
     url(r'^$',index_views.index,name='index'),
     url(r'^user/',include('userdata.urls')),
 ]
+
+#TODO
+#登录接口 user/login/
+#注册接口 user/signup/
