@@ -44,15 +44,4 @@ def signup(request):
         else:
             return HttpResponse(2)  #表单数据无效返回2
 
-#TODO
-#登录请求
-#url:/user/login/
-#方法:POST
-#参数:{"username",用户名，"password":密码}
-#返回值:登录成功返回1，用户名不存在或密码错误返回0，表单数据无效返回2
 
-#注册请求
-#url:/user/signup/
-#方法:POST
-#参数:{"username",用户名，"password":密码}
-#返回值:注册成功返回1，用户名存在返回0，表单数据无效返回2

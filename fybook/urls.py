@@ -19,10 +19,8 @@ from index import views as index_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',index_views.index,name='index'),
+    url(r'^$',index_views.index),
     url(r'^user/',include('userdata.urls')),
+    url(r'^library/',include('library.urls')),
 ]
 
-#TODO
-#登录接口 user/login/
-#注册接口 user/signup/
