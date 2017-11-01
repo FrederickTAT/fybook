@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.shortcuts import render
+from django.http import HttpResponse
 from .models import User
 from django import forms
 
@@ -24,8 +25,8 @@ def login(request):
                 return HttpResponse(1)  #登录成功返回1
             else:
                 return HttpResponse(0)  #用户名或密码错误返回0
-    else :
-        return HttpResponse(2)  #表单数据无效返回2
+        else :
+              return HttpResponse(2)  #表单数据无效返回2
 
 
 def signup(request):
@@ -44,6 +45,14 @@ def signup(request):
             return HttpResponse(2)  #表单数据无效返回2
 
 #TODO
-#注册登录都使用POST
-#登录成功返回1，用户名不存在或密码错误返回0，表单数据无效返回2
-#注册成功返回1，用户名存在返回0，表单数据无效返回2
+#登录请求
+#url:/user/login/
+#方法:POST
+#参数:{"username",用户名，"password":密码}
+#返回值:登录成功返回1，用户名不存在或密码错误返回0，表单数据无效返回2
+
+#注册请求
+#url:/user/signup/
+#方法:POST
+#参数:{"username",用户名，"password":密码}
+#返回值:注册成功返回1，用户名存在返回0，表单数据无效返回2
