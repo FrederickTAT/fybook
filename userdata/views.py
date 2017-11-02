@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from .models import User
 from django import forms
 
@@ -44,4 +44,19 @@ def signup(request):
         else:
             return HttpResponse(2)  #表单数据无效返回2
 
+def getuser(request):
+    if request.method=='GET':
+        get_user_id=request.GET['id']
+        get_user_name=request.GET['username']
+        get_user=User.objects.filter(id=0)
+
+        if get_user_id=='0':
+            get_user=User.objects.filter(username=get_user_name).values()
+        elif get_user_name=='':
+            get_user=User.objects.filter(id=get_user_id).values()
+
+        if get_user:
+            return JsonResponse(get_user[0])
+        else:
+            return JsonResponse({})
 

@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^$',index_views.index),
     url(r'^user/',include('userdata.urls')),
     url(r'^library/',include('library.urls')),
+    url(r'^orders/',include('orders.urls'))
 ]
 
