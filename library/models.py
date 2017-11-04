@@ -8,8 +8,12 @@ class Book(models.Model):
     author=models.CharField(max_length=20,default='unknown')
     seller=models.CharField(max_length=20,default='unknown')
     price=models.FloatField(max_length=3,default=0.0)
-    description=models.TextField(default='')
+    description=models.TextField(default='Nothing')
 
+class Comment(models.Model):
+    bookid=models.IntegerField(default=0)
+    user=models.CharField(max_length=20,default='unknown')
+    time=models.DateTimeField(auto_now_add=True)
+    content=models.TextField(default='Nothing')
+    rank=models.IntegerField(default=-1)
 
-    def __str__(self):
-        return self.title
